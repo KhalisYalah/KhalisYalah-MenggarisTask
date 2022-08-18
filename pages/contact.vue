@@ -2,8 +2,7 @@
 
   <v-container>
 
-    <Breadcrumb/>
-<v-list-item> Contac Us
+<v-list-item> Contact Us
     <v-item></v-item>
 </v-list-item>
 

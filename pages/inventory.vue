@@ -141,8 +141,6 @@ export default {
                 sortable: false,
                 value: 'name',
               },
-              { text: 'Description', value: 'name' },
-              { text: 'Price', value: 'catid' },
               { text: 'Category', value: 'catid' },
               { text: 'Actions', value: 'actions', sortable: false },
             ],
@@ -193,6 +191,9 @@ export default {
     },
 
     editItem (item) {
+      this.prodNam=this.item.name;
+      this.catid=this.item.catid;
+      this.url=this.item.url;
       this.editedIndex = this.products.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true

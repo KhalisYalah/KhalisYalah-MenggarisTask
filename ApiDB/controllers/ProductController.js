@@ -54,7 +54,7 @@ export const saveProduct = (req, res)=>{
     file.mv(`./public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
         try {
-            await Product.create({name: name, image: fileName, url: url,catID:catID});
+            await Product.create({name: name, image: fileName, url: url,catid:catID});
             res.status(201).json({msg: "Product Created Successfuly"});
         } catch (error) {
             console.log(error.message);
@@ -96,7 +96,7 @@ export const updateProduct = async(req, res)=>{
     const url = `${req.protocol}://${req.get("host")}/api/images/${fileName}`;
     
     try {
-        await Product.update({name: name,catID:catID ,image: fileName, url: url},{
+        await Product.update({name: name,catid:catID ,image: fileName, url: url},{
             where:{
                 id: req.params.id
             }
