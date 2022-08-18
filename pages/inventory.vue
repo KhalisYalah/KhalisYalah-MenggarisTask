@@ -48,10 +48,9 @@
                       v-model="catid"
                       :items="catitems"
                       item-text="name"
-                      item-value="Id"
-                      label="Product Catergory"
-                      return-object
-                      single-line
+                      item-value="value"
+                      label="Product Category"
+                      
                     ></v-select>
               </v-card-text>
  
@@ -129,9 +128,9 @@ export default {
             dialogDelete: false,
           
             catitems: [
-              { name: 'Figures', Id: '1' },
-              { name: 'T-Shirts', Id: '2' },
-              { name: 'Gunpla', Id: '3' },
+              { name: 'Figures', value: '1' },
+              { name: 'T-Shirts', value: '2' },
+              { name: 'Gunpla', value: '3' },
                 ],
             headers: [
               { text: 'Id', value: 'id' },
@@ -191,11 +190,12 @@ export default {
     },
 
     editItem (item) {
-      this.prodNam=this.item.name;
-      this.catid=this.item.catid;
-      this.url=this.item.url;
+     
       this.editedIndex = this.products.indexOf(item)
       this.editedItem = Object.assign({}, item)
+       this.prodNam=item.name;
+      this.catid=item.catid;
+      this.url=item.url;
       this.dialog = true
     },
 

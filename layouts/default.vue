@@ -10,7 +10,7 @@
 
    
       <v-spacer></v-spacer>
-     
+     <v-btn text href="/">Home</v-btn>
         <v-btn text href="/inventory">Inventory</v-btn>
          <v-btn text href="/contact">Contacts</v-btn>
         <v-btn icon>
