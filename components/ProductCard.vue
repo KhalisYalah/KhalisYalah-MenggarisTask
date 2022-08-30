@@ -1,4 +1,4 @@
-<template>
+<template v-if="index <= limit">
 
 <v-col>
     <v-card max-width="300px" >
@@ -7,25 +7,30 @@
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                 height="200px"
+                contain
               >
+               
                 <v-card-title >{{product.name}}</v-card-title>
               </v-img>
-  
+        
+                
               <v-card-actions>
+                 
+                <v-card-subtitle>RM {{product.price}}</v-card-subtitle>
                 <v-spacer></v-spacer>
   
-               <v-btn icon >
-                  <v-icon>mdi-share-variant</v-icon>
-                </v-btn>   
+                 
+
+             
          <v-btn
         tile
         color="error"
-        target="_blank" href="https://shopee.com.my/doujinpackers"
+        target="_blank" :href="product.url"
       >
         <v-icon left>
           mdi-cart
         </v-icon>
-        Shop
+        Shop in Shopee
       </v-btn>
   
             
@@ -39,6 +44,7 @@ export default {
   props:{ 
     
     product:{type:Object},
+    limit:Number,
     default:()=>[]
    }
 

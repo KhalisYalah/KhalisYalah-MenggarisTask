@@ -41,6 +41,19 @@
                   required
                 >    
                 </v-text-field>
+                <v-text-field
+                  v-model="shopUrl"
+                  label="Shop Url"
+                  required
+                >    
+                </v-text-field>
+                <v-text-field
+                  v-model="price"
+                  label="Price"
+                   suffix="RM"
+                  required
+                >    
+                </v-text-field>
               <input type="file"  @change="onFileChange" />
               
               <div id="preview"><img v-if="url" :src="url" /></div>
@@ -122,6 +135,7 @@ export default {
     
 
     name: "Inventory",
+
     data() {
         return {
            dialog: false,
@@ -149,6 +163,8 @@ export default {
             editedIndex: -1,
               catid: "",
               prodNam: "",
+              shopUrl:"",
+              price:"0",
               files: [],
 
          
@@ -195,6 +211,8 @@ export default {
       this.editedItem = Object.assign({}, item)
        this.prodNam=item.name;
       this.catid=item.catid;
+      this.shopUrl=item.shopurl;
+      this.price=item.price;
       this.url=item.url;
       this.dialog = true
     },
@@ -239,7 +257,10 @@ export default {
 
      formData.append('title', this.prodNam);
      formData.append('file', this.files[0]);
-     formData.append('catId', this.catId);
+     formData.append('catId', this.catid);
+     formData.append('shopUrl', this.shopUrl);
+     formData.append('price', this.price);
+     
      debugger
       if (this.editedIndex > -1) {
         //edit

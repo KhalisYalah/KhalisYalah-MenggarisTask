@@ -2,6 +2,10 @@
     <div>
         <label>Enter Name</label>
         <input type="text" v-model="name"/>
+          <label>Shop Url</label>
+        <input type="text" v-model="shopUrl"/>
+        <label>Price (RM)</label>
+        <input type="text" v-model="Price"/>
 
         <label>Select  Image</label>
         <input type="file" multiple @change="handleFileSelection( $event )"/>

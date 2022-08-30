@@ -26,7 +26,9 @@
 
      </v-row>
     
-  <header>Anime Figures</header>
+     <v-row >
+  <h2>Anime Figures</h2>
+     </v-row>
   
     <v-row justify="center">
       
@@ -34,22 +36,32 @@
      v-for ="product in figures"
      :key="product.id"
      :product="product"
+      :limit="3"
      /> 
   </v-row>
     
+    <v-row >
+  <h2>T-shirts</h2>
+     </v-row>
     <v-row justify="center">
      <ProductCard 
-     v-for ="product in shirts"
+     v-for ="(product) in shirts"
      :key="product.id"
      :product="product"
+      :limit="3"
      /> 
   </v-row>
+
+  <v-row >
+  <h2>Gunpla</h2>
+     </v-row>
   
   <v-row justify="center">
      <ProductCard 
      v-for ="product in gunpla"
      :key="product.id"
      :product="product"
+     :limit="3"
      /> 
   </v-row>
   
@@ -75,7 +87,6 @@ export default {
             gunpla:[],
             figures:[],
             clipped: false,
-            drawer: false,
             fixed: false,
             items: [
                 {
@@ -89,9 +100,7 @@ export default {
                     to: "/inspire",
                 },
             ],
-            miniVariant: false,
-            right: true,
-            rightDrawer: false,
+            miniVariant: false,      
             title: "DoujinPacker",
         };
     },
